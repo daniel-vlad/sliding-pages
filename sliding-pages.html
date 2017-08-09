@@ -146,7 +146,8 @@
             this.pages[this.activeIndex + 1].ref.classList.remove('out');
             this.pages[this.activeIndex + 1].ref.classList.remove('right');
             this.pages[this.activeIndex + 1].ref.style.transform = `translateX(${this.activePageWidth - -dx}px)`;
-            this.pages[this.activeIndex].ref.style.transform = `translateX(${ratio}px)`;
+            // this.pages[this.activeIndex].ref.style.transform = `translateX(${ratio}px)`;
+            this.pages[this.activeIndex].ref.style.transform = `translateX(${dx}px)`;
           }
           this._setSwipeRatio((Math.abs(dx) / this.activePageWidth) * 100);
         }
@@ -196,7 +197,6 @@
           } else if (evt.detail.dx < 0) {
             this._alterClasses(this.pages[this.activeIndex + 1], transition);
           }
-          this._sortPages(transition);
         }
         this._sortPages(transition);
         this._setSwipeRatio(0);
@@ -261,8 +261,8 @@
       }
 
       _outLeft(page, animate) {
-        this._alterClasses(page, animate);
-
+        // this._alterClasses(page, animate);
+        page.transitioning = true;
         page.ref.classList.remove('right');
         page.ref.classList.add('left');
       }
