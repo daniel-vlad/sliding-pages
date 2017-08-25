@@ -1,4 +1,5 @@
-<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import"
+      href="../polymer/polymer-element.html">
 <!--<link rel="import" href="../polymer/lib/elements/dom-if.html">-->
 <!--<link rel="import" href="../polymer/lib/elements/dom-repeat.html">-->
 
@@ -83,6 +84,7 @@
           activeIndex: {
             type: Number,
             notify: true,
+            value: 0,
             observer: '_propertyChanged',
           }
         };
@@ -100,13 +102,18 @@
         this.prevPage = null;
         this.activePage = null;
         //in case you want to populate the component using a dom-repeat
-        this.addEventListener('dom-change', (e) => {
-          this.pages = [];
-          if (!this.activeIndex) {
-            this.set('activeIndex', 0);
-          }
-          this._initPages();
-        });
+        this.addEventListener('dom-change', (e) => this._init());
+        this._init();
+      }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        this.removeEventListener('dom-change', (e) => this._init());
+      }
+
+      _init() {
+        this.pages = [];
+        this._initPages();
       }
 
       _handleTrack(evt) {

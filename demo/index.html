@@ -3,19 +3,26 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="viewport"
+        content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
   <title>sliding-pages demo</title>
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../../paper-styles/color.html">
-  <link rel="import" href="../../paper-styles/typography.html">
-  <link rel="import" href="../sliding-pages.html">
+  <link rel="import"
+        href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import"
+        href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import"
+        href="../../paper-styles/color.html">
+  <link rel="import"
+        href="../../paper-styles/typography.html">
+  <link rel="import"
+        href="../sliding-pages.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
+  <style is="custom-style"
+         include="demo-pages-shared-styles">
     * {
       font-family: 'Roboto', sans-serif;
     }
@@ -89,7 +96,11 @@
       <dom-bind>
         <template>
           <div class="container">
-            <sliding-pages active-index="{{activeIndex}}" swipe-threshold="0.4" id="slidingPages" swipe-ratio="{{swipeRatio}}" swipe-direction="{{swipeDirection}}">
+            <sliding-pages active-index="{{activeIndex}}"
+                           swipe-threshold="0.4"
+                           id="slidingPages"
+                           swipe-ratio="{{swipeRatio}}"
+                           swipe-direction="{{swipeDirection}}">
               <div>
                 <h1>
                   Page 1
@@ -126,7 +137,9 @@
           </div>
           <button onclick="prevPage()">Previous Page (active-index--)</button>
           <button onclick="nextPage()">Next Page (active-index++)</button>
-          <input type="number" placeholder="active-index" id="pageIndex">
+          <input type="number"
+                 placeholder="active-index"
+                 id="pageIndex">
           <div>Active index: <span id="activeIndex">[[activeIndex]]</span></div>
           <div>Swipe ratio: [[swipeRatio]]</div>
           <div>Swipe direction: [[swipeDirection]]</div>
