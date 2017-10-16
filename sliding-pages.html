@@ -181,7 +181,7 @@
       }
 
       _initPages() {
-        const temp = Polymer.dom(this).querySelectorAll(':scope > div');
+        const temp = Polymer.dom(this).querySelectorAll('.sliding-content');
         for (let page of temp) {
           const obj = {
             ref: page,
